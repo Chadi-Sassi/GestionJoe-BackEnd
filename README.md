@@ -1,10 +1,12 @@
 # GestionJoe-BackEnd
 
 localhost:8080/Employes   method= GET
-    List all employes
+   
+   List all employes
 
 localhost:8080/Employes/{cin}    method=GET
-   Chercher par Cin
+  
+  Chercher par Cin
 
 localhost:8080/Employes/{cin}    method=post 
    inserer un employe
