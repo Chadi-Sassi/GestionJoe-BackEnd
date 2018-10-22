@@ -6,7 +6,7 @@ localhost:8080/Employes   method= GET
 localhost:8080/Employes/{cin}    method=GET
 :Chercher par Cin
 
-localhost:8080/Employes/{cin}    method=post 
+localhost:8080/Employes    method=post 
 :inserer un employe
 
 localhost:8080/Employes/{cin}    method=PUT 
