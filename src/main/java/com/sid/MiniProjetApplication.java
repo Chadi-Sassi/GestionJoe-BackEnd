@@ -12,7 +12,7 @@ import com.sid.dao.EmployeRepository;
 import com.sid.entities.Employe;
 
 @SpringBootApplication
-public class MiniProjetApplication implements CommandLineRunner {
+public class MiniProjetApplication {
 
 	@Autowired
 	EmployeRepository employeRepository;
@@ -20,11 +20,5 @@ public class MiniProjetApplication implements CommandLineRunner {
 		SpringApplication.run(MiniProjetApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		DateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
-		employeRepository.save(new Employe(1236,"azda","test","tunis",234103,
-				"ensss",(float) 23.2,dt.parse("09/08/1985"),true));
-	}
+	
 }

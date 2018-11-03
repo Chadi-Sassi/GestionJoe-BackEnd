@@ -1,100 +1,94 @@
 package com.sid.entities;
 
-import java.io.Serializable;
-import java.util.Date;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+
+
 
 
 @Entity
-public class Employe extends User {
+public class Employe extends User  {
 
-	@Id
-	private int cin_e;
 	
-	private String nom_e;
-	private String prenom_e;
-	private String adresse_e;
-	private int tel_e;
-	private String poste_e;
 	private Float salaire;
 	
-	private Date date_naissance_e;
-	private Boolean type_user;
+	
+	public Boolean anciennete;
+	
+	@ManyToOne()
+	
+	private TypePoste typePoste;
 	
 	public Employe() {
 		
 	}
 	
-	public Employe(int cin_e, String nom_e, String prenom_e, String adresse_e, int tel_e, String poste_e, Float salaire,
+	public Employe(int cin, String nom_e, String prenom_e, String adresse_e, int tel_e,  Float salaire,
 			Date date_naissance_e, Boolean type_user) {
 		super();
-		this.cin_e = cin_e;
-		this.nom_e = nom_e;
-		this.prenom_e = prenom_e;
-		this.adresse_e = adresse_e;
-		this.tel_e = tel_e;
-		this.poste_e = poste_e;
+		this.cin = cin;
+		this.nom = nom_e;
+		this.prenom = prenom_e;
+		this.adresse = adresse_e;
+		this.tel = tel_e;
+		
 		this.salaire = salaire;
-		this.date_naissance_e = date_naissance_e;
-		this.type_user = type_user;
+		this.dateNais = date_naissance_e;
+	
 		
 	}
 
-	public int getCin_e() {
-		return cin_e;
+	public int getCin() {
+		return cin;
 	}
-	public void setCin_e(int cin_e) {
-		this.cin_e = cin_e;
+	public void setCin(int cin) {
+		this.cin= cin;
 	}
-	public String getNom_e() {
-		return nom_e;
+	public String getNom() {
+		return nom;
 	}
-	public void setNom_e(String nom_e) {
-		this.nom_e = nom_e;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-	public String getPrenom_e() {
-		return prenom_e;
+	public String getPrenom() {
+		return prenom;
 	}
-	public void setPrenom_e(String prenom_e) {
-		this.prenom_e = prenom_e;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
-	public int getTel_e() {
-		return tel_e;
+	public int getTel() {
+		return tel;
 	}
-	public void setTel_e(int tel_e) {
-		this.tel_e = tel_e;
+	public void setTel(int tel) {
+		this.tel = tel;
 	}
-	public String getPoste_e() {
-		return poste_e;
-	}
-	public void setPoste_e(String poste_e) {
-		this.poste_e = poste_e;
-	}
+	
 	public Float getSalaire() {
 		return salaire;
 	}
 	public void setSalaire(Float salaire) {
 		this.salaire = salaire;
 	}
-	public Date getDate_naissance_e() {
-		return date_naissance_e;
+	public Date getDateNais() {
+		return dateNais;
 	}
-	public void setDate_naissance_e(Date date_naissance_e) {
-		this.date_naissance_e = date_naissance_e;
+	public void setDateNais(Date dateNais) {
+		this.dateNais = dateNais;
 	}
-	public Boolean getType_user() {
-		return type_user;
+	
+	public String getAdresse() {
+		return adresse;
 	}
-	public void setType_user(Boolean type_user) {
-		this.type_user = type_user;
-	}
-	public String getAdresse_e() {
-		return adresse_e;
-	}
-	public void setAdresse_e(String adresse_e) {
-		this.adresse_e = adresse_e;
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 	public String getLogin() {
 		return login;
@@ -102,19 +96,38 @@ public class Employe extends User {
 	public void setLogin(String login) {
 		this.login=login;
 	}
-	public String getPass() {
-		return pass;
+	public String getMdp() {
+		return mdp;
 	}
-	public void setPass(String pass) {
-		this.pass=pass;
+	public void setMdp(String Mdp) {
+		this.mdp=Mdp;
 	}
+	public Boolean getAnciennete() {
+		return anciennete;
+	}
+
+	public void setAnciennete(Boolean anciennete) {
+		this.anciennete = anciennete;
+	}
+	
 
 	@Override
 	public String toString() {
-		return "\"Employe\" :{\"cin_e\":" + cin_e + ", \"nom_e\":\"" + nom_e + "\", \"prenom_e\":\"" + prenom_e + "\", \"adresse_e\":\"" + adresse_e
-				+ "\", \"tel_e\":\"" + tel_e + "\", \"poste_e\":\"" + poste_e + "\", \"salaire\":" + salaire + ", \"date_naissance_e\":\""
-				+ date_naissance_e + "\", \"type_user\":" + type_user + "}";
+		return "\"Employe\" :{\"cin_e\":" + cin + ", \"nom_e\":\"" + nom + "\", \"prenom_e\":\"" + prenom + "\", \"adresse_e\":\"" + adresse
+				+ "\", \"tel_e\":\"" + tel + "\", \"salaire\":" + salaire + ", \"date_naissance_e\":\""
+				+ dateNais + "\", \"anciennete\":" + anciennete + "}";
 	}
+
+	public TypePoste getTypePoste() {
+		return typePoste;
+	}
+
+	public void setTypePoste(TypePoste typePoste) {
+		this.typePoste = typePoste;
+	}
+
+
+
 	
 	
 }
